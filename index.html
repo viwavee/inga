@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Инга • Юбилей 50 лет | 14 августа 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: #0d0d1a;
+            font-family: 'Lato', sans-serif;
+            color: #e8e8e8;
+            min-height: 100vh;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ---------- PARTICLES ---------- */
+        #particles {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ---------- HERO ---------- */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 20px;
+            background: radial-gradient(ellipse at center, #1a1a3e 0%, #0d0d1a 70%);
+            z-index: 1;
+        }
+
+        .hero-inner {
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            gap: 80px;
+            align-items: center;
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        .photo-frame {
+            position: relative;
+            opacity: 0;
+            animation: fadeInUp 1.2s ease forwards 0.4s;
+        }
+
+        .photo-frame img {
+            width: 100%;
+            display: block;
+            border-radius: 4px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            position: relative;
+            z-index: 2;
+            background: linear-gradient(135deg, #2a2a4e, #1a1a3e);
+        }
+
+        .photo-frame::before {
+            content: '';
+            position: absolute;
+            top: -10px; left: -10px; right: 10px; bottom: 10px;
+            border: 1px solid rgba(201, 169, 110, 0.3);
+            border-radius: 4px;
+            z-index: 1;
+        }
+
+        .hero-text small {
+            display: block;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: #c9a96e;
+            margin-bottom: 20px;
+            font-size: 12px;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 0.3s;
+        }
+
+        .hero-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 80px;
+            font-weight: 700;
+            color: #f5f0e6;
+            line-height: 1;
+            margin-bottom: 10px;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 0.6s;
+            text-shadow: 0 0 40px rgba(201, 169, 110, 0.2);
+        }
+
+        .hero-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 400;
+            color: #c9a96e;
+            margin-bottom: 35px;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 0.8s;
+        }
+
+        .hero-text p {
+            font-size: 17px;
+            line-height: 1.9;
+            color: #a0a0c0;
+            margin-bottom: 18px;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 1s;
+        }
+
+        .hero-date {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 16px 32px;
+            border: 1px solid rgba(201, 169, 110, 0.4);
+            border-radius: 50px;
+            font-size: 15px;
+            letter-spacing: 2px;
+            color: #c9a96e;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 1.2s;
+        }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #c9a96e;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 1.8s, bounce 2s ease-in-out infinite 2.5s;
+        }
+
+        .scroll-hint::after {
+            content: '↓';
+            display: block;
+            margin-top: 8px;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        /* ---------- SECTIONS ---------- */
+        section {
+            position: relative;
+            z-index: 1;
+            padding: 100px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: #f5f0e6;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .section-title span {
+            color: #c9a96e;
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .section-sub {
+            text-align: center;
+            color: #666699;
+            font-size: 13px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 60px;
+        }
+
+        /* ---------- INVITE ---------- */
+        .invite-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 100px;
+            color: #c9a96e;
+            line-height: 1;
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 0 0 60px rgba(201, 169, 110, 0.15);
+        }
+
+        .invite-text {
+            text-align: center;
+            font-size: 17px;
+            line-height: 1.9;
+            color: #a0a0c0;
+            max-width: 600px;
+            margin: 0 auto 20px;
+        }
+
+        /* ---------- TIMELINE ---------- */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 60px;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: linear-gradient(#c9a96e, rgba(201, 169, 110, 0.1));
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 50px;
+            align-items: flex-start;
+            position: relative;
+        }
+
+        .timeline-time {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #c9a96e;
+            color: #0d0d1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+            flex-shrink: 0;
+            box-shadow: 0 10px 30px rgba(201, 169, 110, 0.2);
+            z-index: 2;
+        }
+
+        .timeline-card {
+            flex: 1;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(201, 169, 110, 0.15);
+            border-radius: 16px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        .timeline-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            margin-bottom: 10px;
+            color: #c9a96e;
+        }
+
+        .timeline-card p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #a0a0c0;
+        }
+
+        .late-note {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 20px;
+            font-family: 'Playfair Display', serif;
+            color: #c9a96e;
+            font-style: italic;
+        }
+
+        /* ---------- LOCATION ---------- */
+        .location-section { text-align: center; }
+
+        .location-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            color: #f5f0e6;
+            margin-bottom: 10px;
+        }
+
+        .location-addr {
+            color: #8888aa;
+            font-size: 16px;
+            margin-bottom: 40px;
+        }
+
+        .location-photo {
+            width: 100%;
+            max-width: 500px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin: 0 auto 30px;
+            display: block;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+            background: linear-gradient(135deg, #2a2a4e, #1a1a3e);
+        }
+
+        .route-btn {
+            display: inline-block;
+            padding: 16px 40px;
+            background: transparent;
+            color: #c9a96e;
+            text-decoration: none;
+            border: 1px solid rgba(201, 169, 110, 0.4);
+            border-radius: 50px;
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.4s ease;
+        }
+
+        .route-btn:hover {
+            background: #c9a96e;
+            color: #0d0d1a;
+            border-color: #c9a96e;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(201, 169, 110, 0.2);
+        }
+
+        .map-card {
+            overflow: hidden;
+            border-radius: 16px;
+            border: 1px solid rgba(201, 169, 110, 0.15);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .map-card iframe {
+            display: block;
+            width: 100%;
+            border: 0;
+        }
+
+        /* ---------- DRESS CODE ---------- */
+        .dress-text {
+            text-align: center;
+            max-width: 500px;
+            margin: 0 auto 50px;
+            font-size: 17px;
+            line-height: 1.8;
+            color: #a0a0c0;
+        }
+
+        .palette {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .palette .color {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            border: 2px solid rgba(255,255,255,0.1);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .palette .color::after {
+            content: attr(data-label);
+            position: absolute;
+            bottom: -26px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 11px;
+            color: #8888aa;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .palette .color:hover {
+            transform: translateY(-8px) scale(1.1);
+            border-color: rgba(201, 169, 110, 0.5);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .palette .color:hover::after { opacity: 1; }
+
+        /* ---------- COUNTDOWN ---------- */
+        .countdown-wrap {
+            text-align: center;
+            padding: 80px 20px;
+            background: radial-gradient(ellipse at center, #1a1a3e 0%, #0d0d1a 70%);
+        }
+
+        .countdown-wrap h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            color: #f5f0e6;
+            margin-bottom: 50px;
+        }
+
+        .countdown-wrap h2 span {
+            color: #c9a96e;
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+        }
+
+        .countdown .unit {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(201, 169, 110, 0.15);
+            border-radius: 16px;
+            padding: 24px 18px;
+            width: 100px;
+            backdrop-filter: blur(10px);
+        }
+
+        .countdown .unit span {
+            display: block;
+            font-family: 'Playfair Display', serif;
+            font-size: 38px;
+            color: #c9a96e;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .countdown .unit small {
+            color: #666699;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .confirm-btn {
+            display: inline-block;
+            padding: 18px 50px;
+            background: #c9a96e;
+            color: #0d0d1a;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.4s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .confirm-btn:hover {
+            background: #d4b87d;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(201, 169, 110, 0.25);
+        }
+
+        /* ---------- FOOTER ---------- */
+        footer {
+            text-align: center;
+            padding: 50px 20px;
+            font-size: 20px;
+            color: #c9a96e;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* ---------- ANIMATIONS ---------- */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(8px); }
+        }
+
+        /* ---------- SCROLL REVEAL ---------- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ============================================================
+           TABLET (max-width: 900px)
+           ============================================================ */
+        @media (max-width: 900px) {
+            .hero {
+                min-height: auto;
+                padding: 60px 20px 100px;
+            }
+
+            .hero-inner {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .photo-frame {
+                max-width: 320px;
+                margin: 0 auto;
+                order: -1;
+            }
+
+            .hero-text h1 { font-size: 64px; }
+            .hero-text h2 { font-size: 38px; }
+            .hero-text p { font-size: 16px; }
+
+            .timeline::before { display: none; }
+            .timeline-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 20px;
+            }
+            .timeline-card { width: 100%; }
+
+            section { padding: 80px 20px; }
+            .section-title { font-size: 40px; }
+            .invite-number { font-size: 90px; }
+        }
+
+        /* ============================================================
+           PHONE (max-width: 600px)
+           ============================================================ */
+        @media (max-width: 600px) {
+            .hero {
+                padding: 40px 16px 90px;
+            }
+
+            .photo-frame {
+                max-width: 260px;
+            }
+
+            .photo-frame::before {
+                top: -6px; left: -6px; right: 6px; bottom: 6px;
+            }
+
+            .hero-text small {
+                font-size: 10px;
+                letter-spacing: 4px;
+                margin-bottom: 14px;
+            }
+
+            .hero-text h1 {
+                font-size: 48px;
+                margin-bottom: 6px;
+            }
+
+            .hero-text h2 {
+                font-size: 30px;
+                margin-bottom: 24px;
+            }
+
+            .hero-text p {
+                font-size: 15px;
+                line-height: 1.8;
+                margin-bottom: 14px;
+            }
+
+            .hero-date {
+                font-size: 13px;
+                padding: 14px 24px;
+                margin-top: 14px;
+            }
+
+            .scroll-hint {
+                font-size: 10px;
+                bottom: 20px;
+            }
+
+            section {
+                padding: 60px 16px;
+            }
+
+            .section-title {
+                font-size: 32px;
+                margin-bottom: 10px;
+            }
+
+            .section-sub {
+                font-size: 11px;
+                letter-spacing: 3px;
+                margin-bottom: 40px;
+            }
+
+            .invite-number {
+                font-size: 72px;
+                margin-bottom: 16px;
+            }
+
+            .invite-text {
+                font-size: 15px;
+                line-height: 1.8;
+            }
+
+            .timeline-item {
+                margin-bottom: 30px;
+            }
+
+            .timeline-time {
+                width: 56px;
+                height: 56px;
+                font-size: 13px;
+            }
+
+            .timeline-card {
+                padding: 22px 20px;
+            }
+
+            .timeline-card h3 {
+                font-size: 22px;
+            }
+
+            .timeline-card p {
+                font-size: 14px;
+            }
+
+            .late-note {
+                font-size: 16px;
+                margin-top: 24px;
+            }
+
+            .location-name {
+                font-size: 28px;
+            }
+
+            .location-addr {
+                font-size: 14px;
+                margin-bottom: 24px;
+            }
+
+            .location-photo {
+                height: 220px;
+                border-radius: 10px;
+                margin-bottom: 24px;
+            }
+
+            .route-btn {
+                padding: 14px 32px;
+                font-size: 12px;
+            }
+
+            .map-card {
+                border-radius: 12px;
+            }
+
+            .map-card iframe {
+                height: 300px;
+            }
+
+            .dress-text {
+                font-size: 15px;
+                margin-bottom: 40px;
+            }
+
+            .palette {
+                gap: 14px;
+            }
+
+            .palette .color {
+                width: 44px;
+                height: 44px;
+            }
+
+            .countdown-wrap {
+                padding: 60px 16px;
+            }
+
+            .countdown-wrap h2 {
+                font-size: 32px;
+                margin-bottom: 36px;
+            }
+
+            .countdown {
+                gap: 12px;
+                margin-bottom: 36px;
+            }
+
+            .countdown .unit {
+                width: 72px;
+                padding: 16px 8px;
+                border-radius: 12px;
+            }
+
+            .countdown .unit span {
+                font-size: 28px;
+            }
+
+            .countdown .unit small {
+                font-size: 10px;
+                letter-spacing: 1px;
+            }
+
+            .confirm-btn {
+                padding: 16px 36px;
+                font-size: 13px;
+            }
+
+            footer {
+                font-size: 17px;
+                padding: 36px 16px;
+            }
+        }
+
+        /* Very small phones */
+        @media (max-width: 380px) {
+            .hero-text h1 { font-size: 42px; }
+            .hero-text h2 { font-size: 26px; }
+            .countdown .unit { width: 64px; padding: 14px 6px; }
+            .countdown .unit span { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="particles"></canvas>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-inner">
+            <div class="photo-frame">
+                <img src="img/inga.jpg" alt="Инга">
+            </div>
+            <div class="hero-text">
+                <small>Юбилей • 2026</small>
+                <h1>Инга</h1>
+                <h2>50 лет</h2>
+                <p>
+                    Дорогие родные, друзья и близкие! Совсем скоро наступит особенный день — мой золотой юбилей.
+                </p>
+                <p>
+                    Приглашаю вас провести этот вечер в атмосфере тепла, искренних улыбок и прекрасного настроения.
+                </p>
+                <div class="hero-date">✨ 14 августа 2026 года</div>
+            </div>
+        </div>
+        <div class="scroll-hint">Листайте вниз</div>
+    </section>
+
+    <!-- INVITATION -->
+    <section class="reveal">
+        <div class="section-title">Приглашение</div>
+        <div class="section-sub">Invitation</div>
+
+        <div class="invite-number">50</div>
+        <p class="invite-text">
+            Полвека — это прекрасный повод собраться вместе, вспомнить самые счастливые моменты и создать ещё больше счастливых мгновений.
+        </p>
+        <p class="invite-text">
+            Я буду искренне рада видеть вас на праздновании моего юбилея. Ваше присутствие — самый дорогой подарок для меня.
+        </p>
+    </section>
+
+    <!-- PROGRAM -->
+    <section class="reveal">
+        <div class="section-title">Программа <span>вечера</span></div>
+        <div class="section-sub">Timing</div>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-time">18:00</div>
+                <div class="timeline-card">
+                    <h3>Сбор гостей</h3>
+                    <p>Начало праздничного вечера. Время тёплых встреч, объятий, улыбок и первых поздравлений.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-time">18:30</div>
+                <div class="timeline-card">
+                    <h3>Начало застолья</h3>
+                    <p>Приглашаем всех за праздничный стол. Пусть вечер наполнится искренними тостами, смехом и хорошим настроением.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-time">19:00</div>
+                <div class="timeline-card">
+                    <h3>Конкурсы и развлечения</h3>
+                    <p>Весёлая праздничная программа, музыка, сюрпризы и множество ярких моментов.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="late-note">
+            Не опаздывайте — самые интересные моменты начнутся с первых минут!
+        </div>
+    </section>
+
+    <!-- LOCATION -->
+    <section class="location-section reveal">
+        <div class="section-title">Место <span>проведения</span></div>
+        <div class="section-sub">Location</div>
+
+        <div class="location-name">«Бакинский дворик»</div>
+        <div class="location-addr">г. Сыктывкар — Беседка</div>
+        <img src="img/location.jpg" class="location-photo" alt="Бакинский дворик">
+        <a class="route-btn" href="https://yandex.ru/maps/?text=Бакинский+дворик+Сыктывкар" target="_blank" rel="noopener">Построить маршрут</a>
+    </section>
+
+    <!-- MAP -->
+    <section class="reveal" style="padding-top: 40px;">
+        <div class="map-card">
+            <iframe src="https://yandex.ru/map-widget/v1/?text=Бакинский%20дворик%20Сыктывкар" width="100%" height="450" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <!-- DRESS CODE -->
+    <section class="reveal">
+        <div class="section-title">Dress <span>Code</span></div>
+        <div class="section-sub">Style</div>
+
+        <p class="dress-text">
+            В этот особенный вечер хочется окружить себя красотой и улыбками.<br>
+           Буду признательна, если вы выберете праздничный, элегантный образ, который подчеркнет атмосферу моего юбилея.
+        </p>
+    </section>
+
+    <!-- COUNTDOWN -->
+    <div class="countdown-wrap reveal">
+        <h2>До праздника <span>осталось</span></h2>
+        <div class="countdown">
+            <div class="unit"><span id="days">00</span><small>дней</small></div>
+            <div class="unit"><span id="hours">00</span><small>часов</small></div>
+            <div class="unit"><span id="minutes">00</span><small>минут</small></div>
+            <div class="unit"><span id="seconds">00</span><small>секунд</small></div>
+        </div>
+        <a href="#" class="confirm-btn">Подтвердить присутствие</a>
+    </div>
+
+    <footer>С любовью ❤ Инга</footer>
+
+    <script>
+        // ---------- PARTICLES ----------
+        const canvas = document.getElementById('particles');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        class Particle {
+            constructor() { this.reset(); }
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 0.5;
+                this.speedX = (Math.random() - 0.5) * 0.3;
+                this.speedY = (Math.random() - 0.5) * 0.3;
+                this.opacity = Math.random() * 0.5 + 0.1;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset();
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(201, 169, 110, ${this.opacity})`;
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < 80; i++) particles.push(new Particle());
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => { p.update(); p.draw(); });
+            requestAnimationFrame(animateParticles);
+        }
+        animateParticles();
+
+        // ---------- COUNTDOWN ----------
+        const birthday = new Date("August 14, 2026 18:00:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = birthday - now;
+            const pad = n => n < 10 ? "0" + n : n;
+
+            if (distance < 0) {
+                ["days","hours","minutes","seconds"].forEach(id => document.getElementById(id).textContent = "00");
+                return;
+            }
+
+            document.getElementById("days").textContent = pad(Math.floor(distance / (1000*60*60*24)));
+            document.getElementById("hours").textContent = pad(Math.floor((distance % (1000*60*60*24)) / (1000*60*60)));
+            document.getElementById("minutes").textContent = pad(Math.floor((distance % (1000*60*60)) / (1000*60)));
+            document.getElementById("seconds").textContent = pad(Math.floor((distance % (1000*60)) / 1000));
+        }
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // ---------- SCROLL REVEAL ----------
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>
