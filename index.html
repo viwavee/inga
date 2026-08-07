@@ -109,7 +109,7 @@
         }
 
         .hero-text p {
-            font-size: 17px;
+            font-size: 18px;
             line-height: 1.9;
             color: #a0a0c0;
             margin-bottom: 18px;
@@ -123,7 +123,7 @@
             padding: 16px 32px;
             border: 1px solid rgba(201, 169, 110, 0.4);
             border-radius: 50px;
-            font-size: 15px;
+            font-size: 16px;
             letter-spacing: 2px;
             color: #c9a96e;
             opacity: 0;
@@ -136,7 +136,7 @@
             left: 50%;
             transform: translateX(-50%);
             color: #c9a96e;
-            font-size: 11px;
+            font-size: 12px;
             letter-spacing: 3px;
             text-transform: uppercase;
             opacity: 0;
@@ -178,7 +178,7 @@
         .section-sub {
             text-align: center;
             color: #666699;
-            font-size: 13px;
+            font-size: 14px;
             letter-spacing: 4px;
             text-transform: uppercase;
             margin-bottom: 60px;
@@ -197,7 +197,7 @@
 
         .invite-text {
             text-align: center;
-            font-size: 17px;
+            font-size: 18px;
             line-height: 1.9;
             color: #a0a0c0;
             max-width: 600px;
@@ -214,7 +214,7 @@
         .timeline::before {
             content: "";
             position: absolute;
-            left: 60px;
+            left: 30px;
             top: 0;
             bottom: 0;
             width: 1px;
@@ -239,7 +239,7 @@
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            font-size: 14px;
+            font-size: 15px;
             flex-shrink: 0;
             box-shadow: 0 10px 30px rgba(201, 169, 110, 0.2);
             z-index: 2;
@@ -262,8 +262,8 @@
         }
 
         .timeline-card p {
-            font-size: 16px;
-            line-height: 1.7;
+            font-size: 17px;
+            line-height: 1.8;
             color: #a0a0c0;
         }
 
@@ -288,7 +288,7 @@
 
         .location-addr {
             color: #8888aa;
-            font-size: 16px;
+            font-size: 17px;
             margin-bottom: 40px;
         }
 
@@ -312,7 +312,7 @@
             text-decoration: none;
             border: 1px solid rgba(201, 169, 110, 0.4);
             border-radius: 50px;
-            font-size: 13px;
+            font-size: 14px;
             letter-spacing: 2px;
             text-transform: uppercase;
             transition: all 0.4s ease;
@@ -344,8 +344,8 @@
             text-align: center;
             max-width: 500px;
             margin: 0 auto 50px;
-            font-size: 17px;
-            line-height: 1.8;
+            font-size: 18px;
+            line-height: 1.9;
             color: #a0a0c0;
         }
 
@@ -448,7 +448,7 @@
             color: #0d0d1a;
             text-decoration: none;
             border-radius: 50px;
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 700;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -518,16 +518,7 @@
 
             .hero-text h1 { font-size: 64px; }
             .hero-text h2 { font-size: 38px; }
-            .hero-text p { font-size: 16px; }
-
-            .timeline::before { display: none; }
-            .timeline-item {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                gap: 20px;
-            }
-            .timeline-card { width: 100%; }
+            .hero-text p { font-size: 17px; }
 
             section { padding: 80px 20px; }
             .section-title { font-size: 40px; }
@@ -551,7 +542,7 @@
             }
 
             .hero-text small {
-                font-size: 10px;
+                font-size: 11px;
                 letter-spacing: 4px;
                 margin-bottom: 14px;
             }
@@ -567,19 +558,19 @@
             }
 
             .hero-text p {
-                font-size: 15px;
-                line-height: 1.8;
+                font-size: 17px;
+                line-height: 1.9;
                 margin-bottom: 14px;
             }
 
             .hero-date {
-                font-size: 13px;
+                font-size: 15px;
                 padding: 14px 24px;
                 margin-top: 14px;
             }
 
             .scroll-hint {
-                font-size: 10px;
+                font-size: 11px;
                 bottom: 20px;
             }
 
@@ -588,12 +579,12 @@
             }
 
             .section-title {
-                font-size: 32px;
+                font-size: 34px;
                 margin-bottom: 10px;
             }
 
             .section-sub {
-                font-size: 11px;
+                font-size: 12px;
                 letter-spacing: 3px;
                 margin-bottom: 40px;
             }
@@ -604,43 +595,54 @@
             }
 
             .invite-text {
-                font-size: 15px;
-                line-height: 1.8;
+                font-size: 17px;
+                line-height: 1.9;
+            }
+
+            /* --- TIMELINE: теперь как на компьютере --- */
+            .timeline::before {
+                display: block;
+                left: 28px;
             }
 
             .timeline-item {
+                flex-direction: row;
+                align-items: flex-start;
+                text-align: left;
+                gap: 20px;
                 margin-bottom: 30px;
             }
 
             .timeline-time {
                 width: 56px;
                 height: 56px;
-                font-size: 13px;
-            }
-
-            .timeline-card {
-                padding: 22px 20px;
-            }
-
-            .timeline-card h3 {
-                font-size: 22px;
-            }
-
-            .timeline-card p {
                 font-size: 14px;
             }
 
+            .timeline-card {
+                padding: 24px;
+            }
+
+            .timeline-card h3 {
+                font-size: 24px;
+            }
+
+            .timeline-card p {
+                font-size: 17px;
+                line-height: 1.8;
+            }
+
             .late-note {
-                font-size: 16px;
+                font-size: 18px;
                 margin-top: 24px;
             }
 
             .location-name {
-                font-size: 28px;
+                font-size: 30px;
             }
 
             .location-addr {
-                font-size: 14px;
+                font-size: 16px;
                 margin-bottom: 24px;
             }
 
@@ -652,7 +654,7 @@
 
             .route-btn {
                 padding: 14px 32px;
-                font-size: 12px;
+                font-size: 14px;
             }
 
             .map-card {
@@ -664,7 +666,8 @@
             }
 
             .dress-text {
-                font-size: 15px;
+                font-size: 17px;
+                line-height: 1.9;
                 margin-bottom: 40px;
             }
 
@@ -682,7 +685,7 @@
             }
 
             .countdown-wrap h2 {
-                font-size: 32px;
+                font-size: 34px;
                 margin-bottom: 36px;
             }
 
@@ -702,22 +705,21 @@
             }
 
             .countdown .unit small {
-                font-size: 10px;
+                font-size: 11px;
                 letter-spacing: 1px;
             }
 
             .confirm-btn {
                 padding: 16px 36px;
-                font-size: 13px;
+                font-size: 15px;
             }
 
             footer {
-                font-size: 17px;
+                font-size: 18px;
                 padding: 36px 16px;
             }
         }
 
-        /* Very small phones */
         @media (max-width: 380px) {
             .hero-text h1 { font-size: 42px; }
             .hero-text h2 { font-size: 26px; }
@@ -739,9 +741,9 @@
             <div class="hero-text">
                 <small>Юбилей • 2026</small>
                 <h1>Инга</h1>
-                <h2>50 лет</h2>
+                <h2>юбилей</h2>
                 <p>
-                    Дорогие родные, друзья и близкие! Совсем скоро наступит особенный день — мой золотой юбилей.
+                    Дорогие родные, друзья и близкие! Совсем скоро наступит особенный день - мой золотой юбилей.
                 </p>
                 <p>
                     Приглашаю вас провести этот вечер в атмосфере тепла, искренних улыбок и прекрасного настроения.
@@ -759,10 +761,10 @@
 
         <div class="invite-number">50</div>
         <p class="invite-text">
-            Полвека — это прекрасный повод собраться вместе, вспомнить самые счастливые моменты и создать ещё больше счастливых мгновений.
+            Полвека - это прекрасный повод собраться вместе, вспомнить самые счастливые моменты и создать ещё больше счастливых мгновений.
         </p>
         <p class="invite-text">
-            Я буду искренне рада видеть вас на праздновании моего юбилея. Ваше присутствие — самый дорогой подарок для меня.
+            Я буду искренне рада видеть вас на праздновании моего юбилея. Ваше присутствие - самый дорогой подарок для меня.
         </p>
     </section>
 
@@ -838,11 +840,6 @@
             <div class="unit"><span id="minutes">00</span><small>минут</small></div>
             <div class="unit"><span id="seconds">00</span><small>секунд</small></div>
         </div>
-        <!-- 
-            ЗАМЕНИТЕ ССЫЛКУ НИЖЕ:
-            Вариант 1 (если есть короткое имя): https://vk.me/inga
-            Вариант 2 (если только ID): https://vk.com/im?sel=123456789
-        -->
         <a href="https://vk.ru/id186776178" class="confirm-btn" target="_blank" rel="noopener">Подтвердить присутствие</a>
     </div>
 
